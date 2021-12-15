@@ -1,0 +1,12 @@
+.navbar__links--link {
+    list-style: none;
+    height: 42px;
+    margin: 0 1rem;
+    display: flex;
+    align-items: center;
+}
+.navbar__links--link .button {
+    font-size: 1.4rem;
+    color: white;
+    text-decoration: none;
+}

@@ -1,0 +1,41 @@
+@import '../../styles-Glovals/globals.css';
+.container-navbar {
+    width: 100%;
+    min-width: 320px;
+    background-color:rgb(9, 117, 211);
+}
+/* height: 42px; */
+.navbar__box {
+    width: 100%;
+    margin: 0 auto;
+}
+.navbar__logo {
+    font-size: 2.5rem;
+    height: 42px;
+    display: flex;
+    align-items: center;
+}
+.navbar__logo p {
+    text-align: center;
+    width: 100%;
+    height: 42px;
+    line-height: 42px;
+}
+.navbar__links {
+    width: 100%;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+}
+@media(min-width:620px) {
+    .navbar__box {
+        display: flex;
+    }
+    .navbar__logo {
+        width: 200px;
+    }
+    .navbar__links {
+        width: calc(100% - 200px);
+        justify-content: flex-end;
+    }
+}
