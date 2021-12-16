@@ -1,0 +1,9 @@
+.container-Home {
+    width: 100%;
+    min-width: 320px;
+    height: 100vh;
+    background-image: url("./assets/xps-ocAuPlfZXEc-unsplash.jpg");
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
