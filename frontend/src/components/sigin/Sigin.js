@@ -2,14 +2,25 @@ import React, { useState } from 'react';
 import Form from '../form-LoginSigin/Form';
 import InputGroup from '../input-group/InputGroup';
 import { Link } from 'react-router-dom';
+import { addUser } from '../../api/addUser';
+
 import './sigin.css';
 const Sigin = () => {
     const [ firstname, setFirstname ] = useState({ value:'', campo:'firstname' });
     const [ lastname, setLastname ] = useState({ value:'', campo:'lastname' });
     const [ email, setEmail ] = useState({ value:'', campo:'email' });
     const [ password, setPassword ] = useState({ value:'', campo:'password' });
+    const callAddUser = (e) => {
+        const data = {
+            firstname:firstname.value,
+            lastname:lastname.value,
+            email:email.value,
+            password:password.value,
+        }
+        addUser(e, data);
+    }
     return (
-       <Form title="Sigin">
+       <Form title="Sigin" submit={callAddUser}>
             <InputGroup 
                 state={firstname} 
                 setState={setFirstname} 
