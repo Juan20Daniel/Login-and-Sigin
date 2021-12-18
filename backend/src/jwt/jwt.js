@@ -19,7 +19,11 @@ function refreshToken(data) {
     }
     return jwt.encode(payload, secret_key);
 }
+function decodeToken(token) {
+    return jwt.decode(token, secret_key);
+}
 module.exports = {
     createToken,
-    refreshToken
+    refreshToken,
+    decodeToken
 }
