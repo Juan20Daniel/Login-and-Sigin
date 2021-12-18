@@ -9,7 +9,10 @@ export function addUser(e, data) {
             "Content-Type":"application/json"
         }
     }).then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => {
+        localStorage.setItem("accessToken", data.accessToken);
+        localStorage.setItem("refreshToken", data.refreshToken);
+    })
     .catch((err) => {
         console.log(err);
     });

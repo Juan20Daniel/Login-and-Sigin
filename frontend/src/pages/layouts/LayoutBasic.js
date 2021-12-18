@@ -1,9 +1,9 @@
 import React from 'react';
 import Home from '../home/Home';
 import LoginSigin from '../loginSigin/LoginSigin';
-import { Route } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 
-const LayoutBasic = () => {
+const LayoutBasic = () => {  
     return (
         <>
             <main className="content">
