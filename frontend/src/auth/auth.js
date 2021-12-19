@@ -6,12 +6,12 @@ export function verifiUser() {
     if(!accessToken && !refreshToken) {
         return false;
     } else {
-        const { exp } = jwtDecode(accessToken);
-        if(!expireToken(exp)) {
+        const { expira } = jwtDecode(accessToken);
+        if(!expireToken(expira)) {
             return accessToken;
         } else {
-            const { exp } = jwtDecode(refreshToken);
-            if(!expireToken(exp)) {
+            const { expira } = jwtDecode(refreshToken);
+            if(!expireToken(expira)) {
                 console.log("The refresh token it valid");
                 return true;
             } else {

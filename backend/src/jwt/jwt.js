@@ -8,14 +8,14 @@ function createToken(data) {
         firstname:data.firstname,
         lastname:data.lastname,
         email:data.email,
-        exp:moment().add(3, 'hours').unix()
+        expira:moment().add(3, 'hours').unix(),
     }
     return jwt.encode(payload, secret_key);
 }
 function refreshToken(data) {
     const payload = {
         idUser:data.idUser,
-        exp:moment().add(30, 'days').unix()
+        expira:moment().add(30, 'months').unix()
     }
     return jwt.encode(payload, secret_key);
 }
