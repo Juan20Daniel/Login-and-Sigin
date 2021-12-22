@@ -5,7 +5,6 @@ const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json());
-app.use('/api', require('./routes/authRoute'));
 app.use('/api', require('./routes/routes'));
 
 app.listen(PORT, () => {

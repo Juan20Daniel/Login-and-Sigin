@@ -6,9 +6,7 @@ const InputGroup = ({ state, setState, value, name, type }) => {
         setState({
             ...state,
             value:value
-        })
-        console.log("campo: "+state.campo)
-        console.log("value: "+state.value);
+        });
     }
     return (
         <div className='input-group'>

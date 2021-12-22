@@ -8,22 +8,15 @@ function createToken(data) {
         firstname:data.firstname,
         lastname:data.lastname,
         email:data.email,
-        expira:moment().add(3, 'hours').unix(),
+        expire:moment().add(3, 'days').unix(),
     }
     return jwt.encode(payload, secret_key);
 }
-function refreshToken(data) {
-    const payload = {
-        idUser:data.idUser,
-        expira:moment().add(30, 'months').unix()
-    }
-    return jwt.encode(payload, secret_key);
-}
+
 function decodeToken(token) {
     return jwt.decode(token, secret_key);
 }
 module.exports = {
     createToken,
-    refreshToken,
     decodeToken
 }

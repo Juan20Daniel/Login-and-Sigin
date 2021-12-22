@@ -11,7 +11,6 @@ export function addUser(e, data) {
     }).then(res => res.json())
     .then(data => {
         localStorage.setItem("accessToken", data.accessToken);
-        localStorage.setItem("refreshToken", data.refreshToken);
     })
     .catch((err) => {
         console.log(err);

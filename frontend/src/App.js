@@ -1,15 +1,18 @@
 import React from 'react';
-import LayoutBasic from './pages/layouts/LayoutBasic';
+import Home from './pages/home/Home';
+import LoginSigin from './pages/loginSigin/LoginSigin';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import AuthProvider from './provider/authProvider';
 function App() {
   return (
-    <>
-    <BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
         <Switch>
-          <Route path="/" exact={false} component={LayoutBasic} />
+          <Route path="/" exact component={Home} />
+          <Route  path="/access" component={LoginSigin}/>
         </Switch>
-    </BrowserRouter>
-    </>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 

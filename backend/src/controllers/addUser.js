@@ -1,10 +1,11 @@
 const connection = require('../model/model');
-const { createToken, refreshToken } = require('../jwt/jwt');
+const { createToken } = require('../jwt/jwt');
 const controller = {}
 
 controller.addUser = (req, res) => {
     const { firstname, lastname, email, password } = req.body;
-    connection.query("INSERT INTO users VALUES(?,?,?,?,?)", [null,firstname,lastname,email,password], (err, rows) => {
+    connection.query("INSERT INTO users VALUES(?,?,?,?,?)", 
+        [null,firstname,lastname,email,password], (err, rows) => {
         if(err) {
             res.status(500).send({error:err});
         } else {
@@ -13,8 +14,7 @@ controller.addUser = (req, res) => {
                     res.status(500).send({error:err});
                 } else {
                     res.status(200).send({
-                        accessToken:createToken(rows[0]),
-                        refreshToken:refreshToken(rows[0])
+                        accessToken:createToken(rows[0])
                     });
                 }
             });

@@ -1,6 +1,19 @@
+import React,{ useState, useEffect, createContext } from "react";
 import jwtDecode from 'jwt-decode';
 
-export function verifiUser() {
+export const AuthContext = createContext();
+
+export default function AuthProvider({ children }) {
+    const [ user, setUser ] = useState({user:null});
+
+    useEffect(() => {
+        verifiUser(setUser);
+    }, [])
+
+    return <AuthContext.Provider value={user}>{ children }</AuthContext.Provider>
+}
+
+function verifiUser(setUser) {
     const accessToken = localStorage.getItem('accessToken');
     if(!accessToken) {
         return false;
@@ -12,7 +25,7 @@ export function verifiUser() {
             lastname:lastname,
             email:email
         }
-        return expireToken(expire) ? false : data;
+        return expireToken(expire) ? false : setUser({user:data});
     }
 }
 function expireToken(expire) {
